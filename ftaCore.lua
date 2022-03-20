@@ -103,65 +103,64 @@ function FTAShowPin(locationIndex)
 		pin.Texture:SetAlpha(0.65);
 	end
 
-		pin:EnableMouse(true)
-		pin:SetFrameStrata("HIGH")
-		pin:SetPoint("CENTER", WorldMapDetailFrame, "TOPLEFT", (x / 100) * WorldMapDetailFrame:GetWidth(), (-y / 100) * WorldMapDetailFrame:GetHeight())
-		pin:SetWidth(31)
-		pin:SetHeight(31)
-		pin:HookScript("OnEnter", function(pin, motion)
-		FTAMapTooltip:SetOwner(pin, "ANCHOR_RIGHT")
-		FTAMapTooltip:ClearLines()
-		FTAMapTooltip:SetScale(GetCVar("uiScale"))
-		FTAMapTooltip:AddLine(string.format("|cffffffff%s|r", hearthstone))
+	pin:EnableMouse(true)
+	pin:SetFrameStrata("HIGH")
+	pin:SetPoint("CENTER", WorldMapDetailFrame, "TOPLEFT", (x / 100) * WorldMapDetailFrame:GetWidth(), (-y / 100) * WorldMapDetailFrame:GetHeight())
+	pin:SetWidth(31)
+	pin:SetHeight(31)
+	pin:HookScript("OnEnter", function(pin, motion)
+	FTAMapTooltip:SetOwner(pin, "ANCHOR_RIGHT")
+	FTAMapTooltip:ClearLines()
+	FTAMapTooltip:SetScale(GetCVar("uiScale"))
+	FTAMapTooltip:AddLine(string.format("|cffffffff%s|r", hearthstone))
 		
-		-- Shouldn't show the glow texture if you don't have the stone learned.
-		if not hasSpell then
-			pin.Texture:SetDesaturated(1);
-			pin.Texture:SetAlpha(0.65);
-		else
-			pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_HIGHLIGHT)
-		end
+	-- Shouldn't show the glow texture if you don't have the stone learned.
+	if not hasSpell then
+		pin.Texture:SetDesaturated(1);
+		pin.Texture:SetAlpha(0.65);
+	else
+		pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_HIGHLIGHT)
+	end
 
-		if not hasSpell then
-			FTAMapTooltip:AddLine(string.format("|cffff0000%s|r", "You don't own this vanity item"));
+	if not hasSpell then
+		FTAMapTooltip:AddLine(string.format("|cffff0000%s|r", "You don't own this vanity item"));
+		usable = false;
+	end
+
+	local start, duration = GetSpellCooldown(hearthstone);
+	if start ~= nil then
+		local cooldown = start + duration - GetTime();
+		if cooldown and cooldown > 0 then
+			if cooldown > 60 then
+				FTAMapTooltip:AddLine(string.format("|cffff0000%s %s:%s|r", "Remaining Cooldown:", math.floor(cooldown / 60), math.floor(cooldown % 60)));
+			else
+				FTAMapTooltip:AddLine(string.format("|cffff0000%s %s|r", "Remaining Cooldown:", math.floor(cooldown)));
+			end
 			usable = false;
 		end
+	end
 
-		local start, duration = GetSpellCooldown(hearthstone);
-		if start ~= nil then
-			local cooldown = start + duration - GetTime();
-			if cooldown and cooldown > 0 then
-				if cooldown > 60 then
-					FTAMapTooltip:AddLine(string.format("|cffff0000%s %s:%s|r", "Remaining Cooldown:", math.floor(cooldown / 60), math.floor(cooldown % 60)));
-				else
-					FTAMapTooltip:AddLine(string.format("|cffff0000%s %s|r", "Remaining Cooldown:", math.floor(cooldown)));
-				end
-				usable = false;
-			end
-		end
-
-		if usable then
-			FTAMapTooltip:AddLine(string.format("|cff00ff00%s|r", "<Click to Teleport>"));
-		end
-
-		FTAMapTooltip:Show()
+	if usable then
+		FTAMapTooltip:AddLine(string.format("|cff00ff00%s|r", "<Click to Teleport>"));
+	end
+	FTAMapTooltip:Show()
 	end)
 
 	pin:HookScript("OnLeave",
-			function(pin)
-				pin.Texture:SetTexture(FTA_ICON_COORDS_ICON)
-				FTAMapTooltip:Hide()
-			end
-		)
+		function(pin)
+			pin.Texture:SetTexture(FTA_ICON_COORDS_ICON)
+			FTAMapTooltip:Hide()
+		end
+	)
 
 	pin:HookScript("OnClick",
-			function(self, button)
-				-- Don't close the worldmap when clicking on an unusable stone.
-				if (button == "LeftButton") and (usable == true) then
-					WorldMapFrameCloseButton:Click()
-				end
+		function(self, button)
+			-- Don't close the worldmap when clicking on an unusable stone.
+			if (button == "LeftButton") and (usable == true) then
+				WorldMapFrameCloseButton:Click()
 			end
-		)
+		end
+	)
 	table.insert(FTAPinFrames, pin)
 	pin:Show()
 end
