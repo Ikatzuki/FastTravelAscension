@@ -26,13 +26,7 @@ function FTAUI_OnLoad(self)
 	self:RegisterEvent("WORLD_MAP_UPDATE")
 	self:RegisterEvent("WORLD_MAP_NAME_UPDATE")
 	self:RegisterEvent("SPELL_COOLDOWN_UPDATE")
-
 	self:SetScript("OnEvent", FTAEventHandler)
-
-	if(not EncounterJournal) then
-		LoadAddOn("Blizzard_EncounterJournal")
-	end
-
 	FTAMapTooltipSetup()
 end
 
@@ -40,7 +34,6 @@ function FTAHideAllPins()
 	for i = 1, #FTAPinFrames do
 		FTAPinFrames[i]:Hide()
 	end
-
 	wipe(FTAPinFrames)
 end
 
@@ -107,15 +100,12 @@ function FTAShowPin(locationIndex)
 		pin.Texture:SetAlpha(0.65);
 	end
 
-	pin:EnableMouse(true)
-	pin:SetFrameStrata("HIGH")
-
-	pin:SetPoint("CENTER", WorldMapDetailFrame, "TOPLEFT", (x / 100) * WorldMapDetailFrame:GetWidth(), (-y / 100) * WorldMapDetailFrame:GetHeight())
-
-	pin:SetWidth(31)
-	pin:SetHeight(31)
-
-	pin:HookScript("OnEnter", function(pin, motion)
+		pin:EnableMouse(true)
+		pin:SetFrameStrata("HIGH")
+		pin:SetPoint("CENTER", WorldMapDetailFrame, "TOPLEFT", (x / 100) * WorldMapDetailFrame:GetWidth(), (-y / 100) * WorldMapDetailFrame:GetHeight())
+		pin:SetWidth(31)
+		pin:SetHeight(31)
+		pin:HookScript("OnEnter", function(pin, motion)
 		FTAMapTooltip:SetOwner(pin, "ANCHOR_RIGHT")
 		FTAMapTooltip:ClearLines()
 		FTAMapTooltip:SetScale(GetCVar("uiScale"))
