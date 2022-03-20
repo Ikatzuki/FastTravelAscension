@@ -1,5 +1,6 @@
 local FTA_ICON_COORDS_ICON = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIcon"
 local FTA_ICON_COORDS_ICON_HIGHLIGHT = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconGlow"
+local FTA_ICON_COORDS_ICON_COOLDOWN = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconCD"
 
 local function ShouldShowIcon(FTAType)
 	local playerFaction = UnitFactionGroup('player')
@@ -81,6 +82,8 @@ function FTAShowPin(locationIndex)
 	end
 
 	local hasSpell = IsUsableSpell(hearthstone);
+	local usable = true;
+
 
 	local pin = CreateFrame("Button", "IPPin", WorldMapDetailFrame, "SecureActionButtonTemplate")
 
@@ -119,7 +122,6 @@ function FTAShowPin(locationIndex)
 			pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_HIGHLIGHT)
 		end
 
-		local usable = true;
 		if not hasSpell then
 			FTAMapTooltip:AddLine(string.format("|cffff0000%s|r", "You don't own this vanity item"));
 			usable = false;
@@ -154,7 +156,8 @@ function FTAShowPin(locationIndex)
 
 	pin:HookScript("OnClick",
 			function(self, button)
-				if (button == "LeftButton") then
+				-- Don't close the worldmap when clicking on an unusable stone.
+				if (button == "LeftButton") and (usable == true) then
 					WorldMapFrameCloseButton:Click()
 				end
 			end
