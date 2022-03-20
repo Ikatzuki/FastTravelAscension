@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: Fast Travel Ascension
+## Notes: Displays buttons on the worldmap allowing you to easily travel with Stone of Retreats
+
+ftaPinDB.lua
+ftaCore.lua
+FastTravelAscension.xml
