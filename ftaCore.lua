@@ -33,6 +33,17 @@ function FTAUI_OnLoad(self)
 	self:SetScript("OnEvent", FTAEventHandler)
 	IPUIPrintDebug("InstancePortalUI_OnLoad()")
 	FTAMapTooltipSetup()
+	FTAOptionSetup()
+end
+
+function FTAOptionSetup()
+	local FTAMapOptionFrame = CreateFrame("CheckButton", "FTAMapOption", WorldMapFrameCloseButton, "OptionsCheckButtonTemplate")
+	FTAMapOptionFrame:SetPoint("CENTER", -200, 0)
+	FTAMapOptionFrame:SetSize(28, 28)
+
+	FTAMapOptionFrame:SetScript("OnClick", function(self)
+		
+	end)
 end
 
 function IPUIPrintDebug(t)
