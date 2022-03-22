@@ -15,6 +15,7 @@ FTAPinDB = {
 		{56.54, 81.49, {23}}, -- Gadgetzan
 		{55.10, 71.17, {25}}, -- Mudsprocket
 		{44.40, 80.37, {26}}, -- Cenarion Hold
+		{30.78, 27.15, {28}}, -- The Exodar
 	},
 	
 	[15]={ --[[ EASTERN KINGDOMS ]]--
@@ -30,6 +31,30 @@ FTAPinDB = {
 		{57.50, 33.10, {20}}, -- Light's Hope
 		{43.39, 94.42, {22}}, -- Booty Bay
 		{47.39, 65.26, {24}}, -- Thorium Point
+		{56.57, 15.56, {31}}, -- Silvermoon City
+	},
+
+	[467]={ --[[ Outland ]]--
+		{57.15, 14.35, {27}}, -- The Stormspire
+		{53.19, 23.64, {29}}, -- Area 52
+		{43.73, 66.21, {30}}, -- Shattrath City
+	},
+
+	[480]={ --[[ Netherstorm ]]--
+		{44.26, 35.13, {27}}, -- The Stormspire
+		{31.86, 64.23, {29}}, -- Area 52
+	},
+
+	[479]={ --[[ Terokkar Forest ]]--
+		{31.92, 24.67, {30}}, -- Shattrath City
+	},
+
+	[465]={ --[[ Azuremyst Isle ]]--
+		{33.40, 44.28, {28}}, -- The Exodar
+	},
+
+	[463]={ --[[ Eversong Woods ]]--
+		{56.66, 51.49, {31}}, -- Silvermoon City
 	},
 
 	[122]={ --[[ Feralas ]]--
@@ -161,11 +186,17 @@ FTAInstanceMapDB = {
 
 	--[[ Burning Crusade Alliance Cities ]]--
 	
-	[797]={"Hellfire Ramparts", 1, 59, 2},
+	[28]={"The Exodar", 1, "Stone of Retreat: The Exodar", 2},
 	
 	--[[ Burning Crusade Horde Cities ]]--
 	
-	 [776]={"Gruul's Lair", 2, 70, 2},
+	[31]={"Silvermoon City", 2, "Stone of Retreat: Silvermoon City", 2},
+
+	--[[ Burning Crusade Neutral Cities ]]--
+
+	[27]={"The Stormspire", 3, "Stone of Retreat: The Stormspire", 2},
+	[29]={"Area 52", 3, "Stone of Retreat: Area 52", 2},
+	[30]={"Shattrath City", 3, "Stone of Retreat: Shattrath", 2},
 
 	--[[ Wrath Alliance Cities ]]--
 	
@@ -173,5 +204,7 @@ FTAInstanceMapDB = {
 	
 	--[[ Wrath Horde Cities ]]--
 	
-	 [604]={"Icecrown Citadel", 2, 80, 3},
+	[604]={"Icecrown Citadel", 2, 80, 3},
+
+	--[[ Wrath Neutral Cities ]]--
 }
