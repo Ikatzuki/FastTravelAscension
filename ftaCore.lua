@@ -32,7 +32,7 @@ function FTAUI_OnLoad(self)
 	self:RegisterEvent("WORLD_MAP_NAME_UPDATE")
 	self:RegisterEvent("SPELL_COOLDOWN_UPDATE")
 	self:SetScript("OnEvent", FTAEventHandler)
-	IPUIPrintDebug("InstancePortalUI_OnLoad()")
+	IPUIPrintDebug("FTAUI_OnLoad()")
 	FTAMapTooltipSetup()
 	FTAOptionSetup()
 end
