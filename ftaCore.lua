@@ -21,6 +21,7 @@ end
 
 local FTAPinFrames = {}
 local FTAMapTooltip = nil
+local FTAMapOptionFrame = nil
 
 function FTAUI_OnLoad(self)
 	self:RegisterForDrag("LeftButton")
@@ -37,12 +38,19 @@ function FTAUI_OnLoad(self)
 end
 
 function FTAOptionSetup()
-	local FTAMapOptionFrame = CreateFrame("CheckButton", "FTAMapOption", WorldMapFrameCloseButton, "OptionsCheckButtonTemplate")
-	FTAMapOptionFrame:SetPoint("CENTER", -200, 0)
+	FTAMapOptionFrame = CreateFrame("CheckButton", "FTAMapOption", WorldMapFrameCloseButton, "OptionsCheckButtonTemplate")
+	FTAMapOptionFrame:SetPoint("CENTER", WorldMapFrameCloseButton, -60, -0.5)
 	FTAMapOptionFrame:SetSize(28, 28)
+	FTAMapOptionFrame:SetHitRectInsets(0, 0, 0, 0);
+	FTAMapOptionFrame:SetChecked(true);
+
+	local text = FTAMapOptionFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+	text:SetPoint("TOPRIGHT", FTAMapOptionFrame, "TOPLEFT", -10, 0)
+	text:SetSize(text:GetStringWidth(), 28);
+	text:SetText("Show Teleport Markers")
 
 	FTAMapOptionFrame:SetScript("OnClick", function(self)
-		
+		FTARefreshPins();
 	end)
 end
 
@@ -61,6 +69,8 @@ end
 
 function FTARefreshPins()
 	FTAHideAllPins()
+	if FTAMapOptionFrame ~= nil and not FTAMapOptionFrame:GetChecked() then return nil end
+
 	if not (WorldMapFrame:IsVisible()) then return nil end
 
 	local cityOverride = false
@@ -78,6 +88,17 @@ function FTARefreshPins()
 			end
 		end
 	end
+end
+
+function GetRemainingSpellCooldown(spellName)
+	local cooldownSeconds = 0
+	local start, duration = GetSpellCooldown(spellName);
+	if start ~= nil then
+		local cooldown = start + duration - GetTime();
+		return cooldown
+	end
+
+	return 0
 end
 
 function FTAMapTooltipSetup()
@@ -116,23 +137,15 @@ function FTAShowPin(locationIndex)
 		pin:SetAttribute("macrotext1", "/cast "..hearthstone) -- text for macro on left click
 	end
 
-
-
 	pin.Texture = pin:CreateTexture()
 	pin.Texture:SetTexture(FTA_ICON_COORDS_ICON)
 	pin.Texture:SetAllPoints()
 
 	
-	local cooldownSeconds = 0
-	local start, duration = GetSpellCooldown(hearthstone);
-	if start ~= nil then
-		local cooldown = start + duration - GetTime();
-		if cooldown and cooldown > 0 then
-			usable = false
-			
-			pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_COOLDOWN)
-			cooldownSeconds = cooldown
-		end
+	local cooldownSeconds = GetRemainingSpellCooldown(hearthstone);
+	if cooldownSeconds and cooldownSeconds > 0 then
+		usable = false
+		pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_COOLDOWN)
 	end
 
 	-- @robinsch: make icon greyed out
@@ -158,6 +171,7 @@ function FTAShowPin(locationIndex)
 			pin.Texture:SetDesaturated(1);
 			pin.Texture:SetAlpha(0.65);
 		else
+			cooldownSeconds = GetRemainingSpellCooldown(hearthstone);
 			if cooldownSeconds > 0 then
 				
 				pin.Texture:SetTexture(FTA_ICON_COORDS_ICON_COOLDOWN_HIGHLIGHT)
@@ -183,6 +197,7 @@ function FTAShowPin(locationIndex)
 		if usable then
 			FTAMapTooltip:AddLine(string.format("|cff00ff00%s|r", "<Click to Teleport>"));
 		end
+
 		FTAMapTooltip:Show()
 	end)
 

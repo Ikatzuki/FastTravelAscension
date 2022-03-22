@@ -2,6 +2,8 @@
 ## Title: Fast Travel Ascension
 ## Notes: Displays buttons on the worldmap allowing you to easily travel with Stone of Retreats
 
+## SavedVariables: AccountDB
+
 ftaPinDB.lua
 ftaCore.lua
 FastTravelAscension.xml
