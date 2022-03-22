@@ -31,35 +31,31 @@ FTAPinDB = {
 		{43.39, 94.42, {22}}, -- Booty Bay
 		{47.39, 65.26, {24}}, -- Thorium Point
 	},
-	
-	[41]={ --[[ Wetlands ]]--
-		{9.3, 55.63, {1}}, -- Ironforge
-	},
 
 	[122]={ --[[ Feralas ]]--
 		{31.17, 44.45, {4}}, -- Feathermoon Stronghold
-		{75.46, 43.69, {7}}, -- Camp Mojache
+		{74.42, 45.44, {7}}, -- Camp Mojache
 	},
 
 	[102]={ --[[ Desolace ]]--
-		{64.39, 7.42, {2}}, -- Nijel's Point
-		{24.17, 69.46, {8}}, -- Shadowprey Village
+		{65.03, 9.19, {2}}, -- Nijel's Point
+		{23.01, 72.42, {8}}, -- Shadowprey Village
 	},
 
 	[262]={ --[[ Silithus ]]--
-		{52.04, 40.25, {26}}, -- Cenarion Hold
+		{51.98, 39.43, {26}}, -- Cenarion Hold
 	},
 
 	[162]={ --[[ Tanaris ]]--
-		{50.39, 27.27, {23}}, -- Gadgetzan
+		{52.47, 27.94, {23}}, -- Gadgetzan
 	},
 
 	[142]={ --[[ Dustwallow Marsh ]]--
-		{41.99, 72.51, {25}}, -- Mudsprocket
+		{41.88, 72.59, {25}}, -- Mudsprocket
 	},
 
 	[12]={ --[[ The Barrens ]]--
-		{62.09, 37.58, {16}}, -- Ratchet
+		{62.94, 38.03, {16}}, -- Ratchet
 	},
 
 	[182]={ --[[ Azshara ]]--
@@ -67,27 +63,28 @@ FTAPinDB = {
 	},
 
 	[282]={ --[[ Winterspring ]]--
-		{61.08, 38.34, {21}}, -- Everlook
+		{60.61, 38.19, {21}}, -- Everlook
 	},
 
 	[42]={ --[[ Teldrassil ]]--
-		{25.57, 55.52, {6}}, -- Darnassus
+		{30.12, 55.36, {6}}, -- Darnassus
 	},
 
 	[24]={ --[[ Eastern Plaguelands ]]--
-		{75.46, 52.47, {20}}, -- Light's Hope
+		{74.99, 52.99, {20}}, -- Light's Hope
 	},
 
 	[27]={ --[[ The Hinterlands ]]--
-		{16.54, 47.12, {3}}, -- Aerie Peak
+		{14.29, 45.84, {3}}, -- Aerie Peak
+		{78.08, 78.85, {9}}, -- Raventusk Village
 	},
 
 	[28]={ --[[ Dun Morogh ]]--
-		{55.86, 35.10, {1}}, -- Ironforge
+		{55.69, 31.74, {1}}, -- Ironforge
 	},
 
 	[29]={ --[[ Searing Gorge ]]--
-		{37.41, 25.94, {24}}, -- Thorium Point
+		{37.09, 27.33, {24}}, -- Thorium Point
 	},
 
 	[31]={ --[[ Elwynn Forest ]]--
@@ -95,13 +92,13 @@ FTAPinDB = {
 	},
 
 	[38]={ --[[ Stranglethorn Vale ]]--
-		{21.25, 22.50, {18}}, -- Yojamba Isle
-		{30.28, 48.27, {19}}, -- Gurubashi Arena
-		{27.21, 75.26, {22}}, -- Booty Bay
+		{15.75, 15.14, {18}}, -- Yojamba Isle
+		{32.49, 49.36, {19}}, -- Gurubashi Arena
+		{26.47, 73.56, {22}}, -- Booty Bay
 	},
 
 	[183]={ --[[ Felwood ]]--
-		{34.72, 52.90, {12}}, -- Bloodvenom Post
+		{35.38, 49.94, {12}}, -- Bloodvenom Post
 	},
 
 	[5]={ --[[ Durotar ]]--
@@ -109,7 +106,7 @@ FTAPinDB = {
 	},
 
 	[10]={ --[[ Mulgore ]]--
-		{39.06, 29.56, {15}}, -- Thunder Bluff
+		{37.43, 29.35, {15}}, -- Thunder Bluff
 	},
 
 	[21]={ --[[ Tirisfal Glades ]]--
@@ -117,8 +114,12 @@ FTAPinDB = {
 	},
 
 	[39]={ --[[ Swamp of Sorrows ]]--
-		{44.66, 57.05, {10}}, -- Stonard
+		{45.26, 53.82, {10}}, -- Stonard
 	},
+
+	[20]={ --[[ Blasted Lands ]]--
+	{63.95, 19.44, {11}}, -- Nethergarde Keep
+},
 }
 
 FTAInstanceMapDB = {
