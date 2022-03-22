@@ -1,3 +1,5 @@
+local AddonName, Addon = ...
+
 local FTA_ICON_COORDS_ICON = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIcon"
 local FTA_ICON_COORDS_ICON_HIGHLIGHT = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconGlow"
 local FTA_ICON_COORDS_ICON_COOLDOWN = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconCD"
@@ -50,6 +52,7 @@ function FTAOptionSetup()
 	text:SetText("Show Teleport Markers")
 
 	FTAMapOptionFrame:SetScript("OnClick", function(self)
+		Addon.db.showTeleportMarkers = toboolean(self:GetChecked())
 		FTARefreshPins();
 	end)
 end
@@ -230,5 +233,15 @@ function FTAShowPin(locationIndex)
 end
 
 function FTAEventHandler(self, event, ...)
+	if event == "ADDON_LOADED" and ... == AddonName then
+		FTADB = FTADB or {}
+		Addon.db = FTADB
+
+		if FTADB.showTeleportMarkers == nil then
+			FTADB.showTeleportMarkers = true
+		end
+
+		FTAMapOptionFrame:SetChecked(Addon.db.showTeleportMarkers)
+	end
 	FTARefreshPins()
 end
