@@ -5,7 +5,7 @@ local FTA_ICON_COORDS_ICON_HIGHLIGHT = "Interface\\Addons\\FastTravelAscension\\
 local FTA_ICON_COORDS_ICON_COOLDOWN = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconCD"
 local FTA_ICON_COORDS_ICON_COOLDOWN_HIGHLIGHT = "Interface\\Addons\\FastTravelAscension\\Images\\FTAIconCDGlow"
 
-local IPUIDebug=true
+local IPUIDebug=false
 
 local function ShouldShowIcon(FTAType)
 	local playerFaction = UnitFactionGroup('player')

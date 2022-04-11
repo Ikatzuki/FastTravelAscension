@@ -38,6 +38,17 @@ FTAPinDB = {
 		{57.15, 14.35, {27}}, -- The Stormspire
 		{53.19, 23.64, {29}}, -- Area 52
 		{43.73, 66.21, {30}}, -- Shattrath City
+		{42.86, 24.43, {32}}, -- Evergrove
+		{32.66, 30.26, {33}}, -- Ogri'la
+		{42.99, 51.92, {34}}, -- Cenarion Refuge
+		{29.41, 47.76, {35}}, -- Zabra'jin
+		{32.96, 61.35, {36}}, -- Garadar
+		{49.20, 72.68, {37}}, -- Stonebreaker Hold
+		{59.71, 75.76, {38}}, -- Shadowmoon Village
+		{32.19, 41.77, {39}}, -- Orebor Harborage
+		{51.75, 75.33, {40}}, -- Allerian Stronghold
+		{32.61, 72.00, {41}}, -- Telaar
+		{62.00, 84.27, {42}}, -- Wildhammer Stronghold
 	},
 
 	[480]={ --[[ Netherstorm ]]--
@@ -47,6 +58,8 @@ FTAPinDB = {
 
 	[479]={ --[[ Terokkar Forest ]]--
 		{31.92, 24.67, {30}}, -- Shattrath City
+		{49.60, 45.57, {37}}, -- Stonebreaker Hold
+		{57.86, 54.16, {40}}, -- Allerian Stronghold
 	},
 
 	[465]={ --[[ Azuremyst Isle ]]--
@@ -143,8 +156,29 @@ FTAPinDB = {
 	},
 
 	[20]={ --[[ Blasted Lands ]]--
-	{63.95, 19.44, {11}}, -- Nethergarde Keep
-},
+		{63.95, 19.44, {11}}, -- Nethergarde Keep
+	},
+
+	[476]={ --[[ Blade's Edge Mountains ]]--
+		{61.46, 39.57, {32}}, -- Evergrove
+		{28.61, 58.34, {33}}, -- Ogri'la
+	},
+
+	[468]={ --[[ Zangarmarsh ]]--
+		{79.30, 64.41, {34}}, -- Cenarion Refuge
+		{32.11, 49.98, {35}}, -- Zabra'jin
+		{41.79, 29.14, {39}}, -- Orebor Harborage
+	},
+
+	[478]={ --[[ Nagrand ]]--
+		{55.31, 37.00, {36}}, -- Garadar
+		{54.20, 70.66, {41}}, -- Telaar
+	},
+
+	[474]={ --[[ Shadowmoon Valley ]]--
+		{30.11, 28.68, {38}}, -- Shadowmoon Village
+		{37.39, 55.70, {42}}, -- Wildhammer Stronghold
+	},
 }
 
 FTAInstanceMapDB = {
@@ -187,16 +221,27 @@ FTAInstanceMapDB = {
 	--[[ Burning Crusade Alliance Cities ]]--
 	
 	[28]={"The Exodar", 1, "Stone of Retreat: The Exodar", 2},
+	[39]={"Orebor Harborage", 1, "Stone of Retreat: Orebor Harborage", 2},
+	[40]={"Allerian Stronghold", 1, "Stone of Retreat: Allerian Stronghold", 2},
+	[41]={"Telaar", 1, "Stone of Retreat: Telaar", 2},
+	[42]={"Wildhammer Stronghold", 1, "Stone of Retreat: Wildhammer Stronghold", 2},
 	
 	--[[ Burning Crusade Horde Cities ]]--
 	
 	[31]={"Silvermoon City", 2, "Stone of Retreat: Silvermoon City", 2},
+	[35]={"Zabra'jin", 2, "Stone of Retreat: Zabra'jin", 2},
+	[36]={"Garadar", 2, "Stone of Retreat: Garadar", 2},
+	[37]={"Stonebreaker Hold", 2, "Stone of Retreat: Stonebreaker Hold", 2},
+	[38]={"Shadowmoon Village", 2, "Stone of Retreat: Shadowmoon Village", 2},
 
 	--[[ Burning Crusade Neutral Cities ]]--
 
 	[27]={"The Stormspire", 3, "Stone of Retreat: The Stormspire", 2},
 	[29]={"Area 52", 3, "Stone of Retreat: Area 52", 2},
 	[30]={"Shattrath City", 3, "Stone of Retreat: Shattrath", 2},
+	[32]={"Evergrove", 3, "Stone of Retreat: Evergrove", 2},
+	[33]={"Ogri'la", 3, "Stone of Retreat: Ogri'la", 2},
+	[34]={"Cenarion Refuge", 3, "Stone of Retreat: Cenarion Refuge", 2},
 
 	--[[ Wrath Alliance Cities ]]--
 	
