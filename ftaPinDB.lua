@@ -49,6 +49,8 @@ FTAPinDB = {
 		{51.75, 75.33, {40}}, -- Allerian Stronghold
 		{32.61, 72.00, {41}}, -- Telaar
 		{62.00, 84.27, {42}}, -- Wildhammer Stronghold
+		{59.06, 56.43, {43}}, -- Honor Hold
+		{59.11, 48.66, {44}}, -- Thrallmar
 	},
 
 	[480]={ --[[ Netherstorm ]]--
@@ -179,6 +181,11 @@ FTAPinDB = {
 		{30.11, 28.68, {38}}, -- Shadowmoon Village
 		{37.39, 55.70, {42}}, -- Wildhammer Stronghold
 	},
+
+	[466]={ --[[ Hellfire Peninsula ]]--
+		{55.33, 64.75, {43}}, -- Honor Hold
+		{55.49, 38.48, {44}}, -- Thrallmar
+	},
 }
 
 FTAInstanceMapDB = {
@@ -225,6 +232,7 @@ FTAInstanceMapDB = {
 	[40]={"Allerian Stronghold", 1, "Stone of Retreat: Allerian Stronghold", 2},
 	[41]={"Telaar", 1, "Stone of Retreat: Telaar", 2},
 	[42]={"Wildhammer Stronghold", 1, "Stone of Retreat: Wildhammer Stronghold", 2},
+	[43]={"Honor Hold", 1, "Stone of Retreat: Honor Hold", 2},
 	
 	--[[ Burning Crusade Horde Cities ]]--
 	
@@ -233,6 +241,7 @@ FTAInstanceMapDB = {
 	[36]={"Garadar", 2, "Stone of Retreat: Garadar", 2},
 	[37]={"Stonebreaker Hold", 2, "Stone of Retreat: Stonebreaker Hold", 2},
 	[38]={"Shadowmoon Village", 2, "Stone of Retreat: Shadowmoon Village", 2},
+	[44]={"Thrallmar", 2, "Stone of Retreat: Thrallmar", 2},
 
 	--[[ Burning Crusade Neutral Cities ]]--
 
